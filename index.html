@@ -1,0 +1,274 @@
+<!DOCTYPE html><html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VELORA | Fashion Store</title><link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet"><style>
+*{margin:0;padding:0;box-sizing:border-box}
+
+body{
+font-family:Poppins, sans-serif;
+background:radial-gradient(circle at top,#151515,#070708);
+color:#fff;
+overflow-x:hidden;
+}
+
+header{
+position:fixed;
+top:0;
+width:100%;
+z-index:1000;
+background:rgba(0,0,0,0.35);
+backdrop-filter:blur(12px);
+border-bottom:1px solid rgba(255,255,255,0.05);
+}
+
+.nav{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:15px 25px;
+max-width:1200px;
+margin:auto;
+}
+
+.logo{
+font-weight:800;
+letter-spacing:2px;
+color:#d4af37;
+}
+
+.menu a{
+margin-left:18px;
+color:#fff;
+text-decoration:none;
+opacity:0.8;
+transition:.3s;
+}
+.menu a:hover{opacity:1;color:#d4af37}
+
+.hero{
+height:95vh;
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+padding:20px;
+background:linear-gradient(135deg,rgba(212,175,55,0.1),transparent);
+}
+
+.hero h1{font-size:3.5rem}
+.hero p{color:#aaa;margin-top:10px}
+
+.btn{
+margin-top:20px;
+padding:12px 28px;
+border:none;
+border-radius:30px;
+cursor:pointer;
+background:linear-gradient(135deg,#d4af37,#ffdd77);
+font-weight:600;
+}
+
+.section{
+padding:90px 20px;
+max-width:1200px;
+margin:auto;
+}
+
+h2{margin-bottom:25px;color:#d4af37}
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+gap:22px;
+}
+
+/* CARD */
+.card{
+background:rgba(255,255,255,0.03);
+border:1px solid rgba(255,255,255,0.05);
+border-radius:15px;
+overflow:hidden;
+transition:0.4s ease;
+position:relative;
+}
+
+.card:hover{
+transform:translateY(-10px) scale(1.03);
+box-shadow:0 20px 45px rgba(212,175,55,0.25);
+border-color:rgba(212,175,55,0.5);
+}
+
+/* IMAGE ZOOM EFFECT */
+.card img{
+width:100%;
+height:240px;
+object-fit:cover;
+transition:transform 0.5s ease;
+}
+
+.card:hover img{
+transform:scale(1.12);
+filter:brightness(1.1);
+}
+
+/* INFO */
+.info{
+padding:12px;
+}
+
+.price{
+color:#d4af37;
+margin-top:5px;
+font-weight:600;
+}
+
+/* BUTTON */
+.card button{
+width:100%;
+padding:10px;
+border:none;
+background:#d4af37;
+font-weight:600;
+cursor:pointer;
+transition:0.3s;
+}
+
+.card button:hover{
+background:#ffdd77;
+}
+.faq{padding:70px 20px;background:#0e0e0f}
+.faq-item{margin-bottom:15px;border-bottom:1px solid #222;padding-bottom:10px}
+.faq h3{color:#d4af37;cursor:pointer}
+.faq p{display:none;color:#aaa;margin-top:8px}
+
+.modal{
+position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.8);
+display:none;align-items:center;justify-content:center
+}
+
+.modal-box{
+background:#111;padding:25px;border-radius:12px;width:320px
+}
+
+input{width:100%;padding:10px;margin:6px 0;border:none;border-radius:6px;background:#1c1c1c;color:#fff}
+
+.submit{background:#d4af37;border:none;padding:10px;width:100%;cursor:pointer;font-weight:600}
+
+.close{float:right;cursor:pointer;color:#ff4d4d}
+
+.float{position:fixed;right:15px;bottom:15px;display:flex;flex-direction:column;gap:10px}
+.float a{width:55px;height:55px;display:flex;align-items:center;justify-content:center;border-radius:50%}
+.call{background:#25D366}
+.tg{background:#0088cc}
+
+footer{
+text-align:center;
+padding:25px;
+color:#777;
+border-top:1px solid #222;
+}
+</style></head><body><header>
+<div class="nav">
+<div class="logo">VELORA</div>
+<div class="menu">
+<a href="#men">Men</a>
+<a href="#women">Women</a>
+<a href="#faq">FAQ</a>
+</div>
+</div>
+</header><section class="hero">
+<div>
+<h1>Luxury Fashion Store</h1>
+<p>Premium Men & Women Collection</p>
+<button class="btn" onclick="scrollToSec('men')">Shop Now</button>
+</div>
+</section><section class="section" id="men">
+<h2>Men Collection</h2>
+<div class="grid">
+<div class="card"><img src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=1000&q=80"><div class="info"><h3>Classic Suit</h3><p class="price">$180</p><button onclick="openOrder('Classic Suit')">Order</button></div></div>
+<div class="card"><img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff"><div class="info"><h3>Sport Outfit</h3><p class="price">$90</p><button onclick="openOrder('Sport Outfit')">Order</button></div></div>
+<div class="card"><img src="https://images.unsplash.com/photo-1520975916090-3105956dac38"><div class="info"><h3>Casual Wear</h3><p class="price">$70</p><button onclick="openOrder('Casual Wear')">Order</button></div></div>
+<div class="card"><img src="https://images.unsplash.com/photo-1611312449408-fcece27cdbb7?w=1200&auto=format&fit=crop&q=60&ixlib=rb-4.1.0"><div class="info"><h3>Jacket</h3><p class="price">$110</p><button onclick="openOrder('Jacket')">Order</button></div></div>
+<div class="card"><img src="https://images.unsplash.com/photo-1514996937319-344454492b37"><div class="info"><h3>Street Style</h3><p class="price">$85</p><button onclick="openOrder('Street Style')">Order</button></div></div>
+</div>
+</section><section class="section" id="women">
+<h2>Women Collection</h2>
+<div class="grid">
+<div class="card"><img src="https://images.unsplash.com/photo-1605733513597-a8f8341084e6?q=80&w=1229&auto=format&fit=crop&ixlib=rb-4.1.0"><div class="info"><h3>Hand Bag</h3><p class="price">$130</p><button onclick="openOrder('Hand Bag')">Order</button></div></div>
+<div class="card"><img src="https://images.unsplash.com/photo-1605100804763-247f67b3557e"><div class="info"><h3>Jewelry</h3><p class="price">$220</p><button onclick="openOrder('Jewelry')">Order</button></div></div>
+<div class="card"><img src="https://images.unsplash.com/photo-1519741497674-611481863552"><div class="info"><h3>Elegant Dress</h3><p class="price">$160</p><button onclick="openOrder('Elegant Dress')">Order</button></div></div>
+<div class="card"><img src="https://images.unsplash.com/photo-1535043934128-cf0b28d52f95?w=1200&auto=format&fit=crop&q=60&ixlib=rb-4.1.0"><div class="info"><h3>Heels</h3><p class="price">$95</p><button onclick="openOrder('Heels')">Order</button></div></div>
+<div class="card"><img src="https://plus.unsplash.com/premium_photo-1673758905770-a62f4309c43c?w=1200&auto=format&fit=crop&q=60&ixlib=rb-4.1.0"><div class="info"><h3>Fashion Set</h3><p class="price">$140</p><button onclick="openOrder('Fashion Set')">Order</button></div></div>
+</div>
+</section><section class="faq" id="faq">
+<h2>FAQ</h2>
+<div class="faq-item"><h3 onclick="toggle(this)">Delivery time?</h3><p>1-3 business days.</p></div>
+<div class="faq-item"><h3 onclick="toggle(this)">Payment methods?</h3><p>Cash, Click, Payme.</p></div>
+<div class="faq-item"><h3 onclick="toggle(this)">Return policy?</h3><p>Return within 3 days.</p></div>
+</section><div class="modal" id="modal">
+<div class="modal-box">
+<span class="close" onclick="closeOrder()">X</span>
+<h3>Order Form</h3>
+<input id="name" placeholder="Your Name">
+<input id="phone" placeholder="Phone">
+<button class="submit" onclick="send()">Send</button>
+</div>
+</div><div class="float">
+<a href="tel:+99361403543" class="call">📞</a>
+<a href="https://t.me/aiwebuz" class="tg">✈</a>
+</div><footer>
+© 2026 VELORA Fashion Store. All rights reserved.
+</footer><script>
+let product = "";
+
+/* Smooth scroll */
+function scrollToSec(id){
+document.getElementById(id).scrollIntoView({behavior:'smooth'});
+}
+
+/* Open modal */
+function openOrder(name){
+product = name;
+document.getElementById('modal').style.display = 'flex';
+}
+
+/* Close modal */
+function closeOrder(){
+document.getElementById('modal').style.display = 'none';
+}
+
+/* SEND ORDER (SMS VERSION) */
+function send(){
+
+let name = document.getElementById('name').value;
+let phone = document.getElementById('phone').value;
+
+/* validation */
+if(name === "" || phone === ""){
+alert("Please fill all fields!");
+return;
+}
+
+/* message */
+let text = `Order: ${product}%0AName: ${name}%0APhone: ${phone}`;
+
+/* SMS APP OPEN */
+window.location.href = `sms:+99361403543?body=${text}`;
+
+/* close modal */
+closeOrder();
+}
+
+/* FAQ toggle */
+function toggle(el){
+let p = el.nextElementSibling;
+
+if(p.style.display === "block"){
+p.style.display = "none";
+}else{
+p.style.display = "block";
+}
+}
+</script></body>
+</html>
